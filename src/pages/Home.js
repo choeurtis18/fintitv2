@@ -1,60 +1,85 @@
-import React from 'react';
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import React, { useEffect } from 'react';
+import L from 'leaflet';
 
 import Logo_header from "../components/logo_header";
 import Location_header from "../components/location_header";
-
-
-const libraries = ['places'];
-const mapContainerStyle = {
-  width: '100vw',
-  height: '100vh',
-};
-const center = {
-  lat: 7.2905715, // default latitude
-  lng: 80.6337262, // default longitude
-};
+import 'leaflet/dist/leaflet.css';
 
 const Home = () => {
-    const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: 'YOUR_API_KEY',
-        libraries,
-    });
+  useEffect(() => {
+    const map = L.map('maps').setView([0, 0], 16);
 
-    if (loadError) {
-        return <div>Error loading maps</div>;
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    // Fonction pour mettre à jour la position et les activités sur la carte
+    const updateLocationAndActivitiesOnMap = () => {
+      // Obtient la position actuelle de l'utilisateur
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          map.setView([latitude, longitude], 16);
+
+          // Supprime les couches de marqueurs précédentes
+          map.eachLayer((layer) => {
+            if (layer instanceof L.Marker) {
+              layer.remove();
+            }
+          });
+
+          // Ajoute un marqueur pour la position actuelle
+          L.marker([latitude, longitude]).addTo(map);
+
+          // Ajoute des marqueurs pour les activités de types spécifiques
+          addMarkersForActivities(map, 'restaurant', [48.867, 2.345]);
+          addMarkersForActivities(map, 'cinema', [48.865, 2.350]);
+          addMarkersForActivities(map, 'musee', [48.870, 2.340]);
+          // Ajoutez d'autres types et emplacements selon vos besoins
+        },
+        (error) => {
+          console.error('Erreur de géolocalisation :', error.message);
+        }
+      );
+    };
+
+    // Appel initial pour mettre à jour la position et les activités sur la carte
+    updateLocationAndActivitiesOnMap();
+
+    // Met à jour la position et les activités sur la carte toutes les 30 secondes (ou selon vos besoins)
+    const updateInterval = setInterval(updateLocationAndActivitiesOnMap, 30000);
+
+    // Nettoie l'intervalle lorsque le composant est démonté
+    return () => clearInterval(updateInterval);
+  }, []);
+
+  // Fonction pour ajouter des marqueurs pour les activités d'un type spécifique
+  const addMarkersForActivities = (map, activityType, coordinates) => {
+    const marker = L.marker(coordinates).addTo(map);
+
+    // Personnalisez l'icône en fonction du type d'activité
+    switch (activityType) {
+      case 'restaurant':
+        marker.bindPopup('Restaurant');
+        break;
+      case 'cinema':
+        marker.bindPopup('Cinéma');
+        break;
+      case 'musee':
+        marker.bindPopup('Musée');
+        break;
+      // Ajoutez d'autres types selon vos besoins
+      default:
+        marker.bindPopup('Autre');
     }
+  };
 
-    if (!isLoaded) {
-        return <div>Loading maps</div>;
-    }
-
-    return (
+  return (
     <div>
-        <Logo_header></Logo_header>
-        <Location_header></Location_header>
+      <Logo_header></Logo_header>
+      <Location_header></Location_header>
 
-        <div>
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d704.0961779618087!2d2.3416491505986627!3d48.86884582690801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3c8ab00dff%3A0xdb158c2db686cbcf!2sEEMI!5e0!3m2!1sfr!2sfr!4v1706609311598!5m2!1sfr!2sfr" 
-                width="100%" height="450" style={{ border: 0 }} 
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-
-        <div>
-        {/*
-        <GoogleMap
-            mapContainerStyle={mapContainerStyle}
-            zoom={10}
-            center={center}
-        >
-            <Marker position={center} />
-        </GoogleMap>
-        */}
-        </div>
+      <div id='maps' style={{ height: '400px', width: '100%' }}></div>
     </div>
-    );
+  );
 };
-  
+
 export default Home;
