@@ -43,6 +43,7 @@ const Home = () => {
         </div>
 
         <div>
+        {/*
         <GoogleMap
             mapContainerStyle={mapContainerStyle}
             zoom={10}
@@ -50,6 +51,7 @@ const Home = () => {
         >
             <Marker position={center} />
         </GoogleMap>
+        */}
         </div>
     </div>
     );
