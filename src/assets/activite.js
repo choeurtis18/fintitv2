@@ -1,0 +1,51 @@
+export const activites_list = [
+    {
+        id:0,
+        titre: "Le Floor",
+        type: "Restaurant",
+        adresse: "35 Bd Haussmann, 75009 Paris",
+        description: "Une expérience culinaire excellente à ce nouveau restaurant coréen! Les plats sont authentiques et c’était un vrai régal! Le service était également  impeccable avec un personnel super chaleureux. Fortement recommandé!",
+    },
+    {
+        id:1,
+        titre: "Le Cali Sisters",
+        type: "Restaurant",
+        adresse: "35 Bd Haussmann, 75009 Paris",
+        description: "Une expérience culinaire excellente à ce nouveau restaurant coréen! Les plats sont authentiques et c’était un vrai régal! Le service était également  impeccable avec un personnel super chaleureux. Fortement recommandé!",
+    },
+    {
+        id:2,
+        titre: "Vaudeville",
+        type: "Restaurant",
+        adresse: "35 Bd Haussmann, 75009 Paris",
+        description: "Une expérience culinaire excellente à ce nouveau restaurant coréen! Les plats sont authentiques et c’était un vrai régal! Le service était également  impeccable avec un personnel super chaleureux. Fortement recommandé!",
+    },
+    {
+        id:3,
+        titre: "FilmOn",
+        type: "Cinema",
+        adresse: "35 Bd Haussmann, 75009 Paris",
+        description: "Une expérience culinaire excellente à ce nouveau restaurant coréen! Les plats sont authentiques et c’était un vrai régal! Le service était également  impeccable avec un personnel super chaleureux. Fortement recommandé!",
+    },
+    {
+        id:4,
+        titre: "Pathe",
+        type: "Cinema",
+        adresse: "35 Bd Haussmann, 75009 Paris",
+        description: "Une expérience culinaire excellente à ce nouveau restaurant coréen! Les plats sont authentiques et c’était un vrai régal! Le service était également  impeccable avec un personnel super chaleureux. Fortement recommandé!",
+    },
+    {
+        id:5,
+        titre: "Iluso",
+        type: "Musee",
+        adresse: "35 Bd Haussmann, 75009 Paris",
+        description: "Une expérience culinaire excellente à ce nouveau restaurant coréen! Les plats sont authentiques et c’était un vrai régal! Le service était également  impeccable avec un personnel super chaleureux. Fortement recommandé!",
+    },
+    {
+        id:6,
+        titre: "BoisBoisBois",
+        type: "Bar",
+        adresse: "35 Bd Haussmann, 75009 Paris",
+        description: "Une expérience culinaire excellente à ce nouveau restaurant coréen! Les plats sont authentiques et c’était un vrai régal! Le service était également  impeccable avec un personnel super chaleureux. Fortement recommandé!",
+    },
+];
