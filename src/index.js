@@ -7,13 +7,13 @@ import Navigation from './components/Navigation';
 import Home from "./pages/Home";
 import Activites from "./pages/Activites";
 import Activite from "./pages/Activite";
-import Decouverte from "./pages/Decouverte";
+import Compte from "./pages/Compte";
 import NoPage from "./pages/NoPage";
 
 const nav_list = [
   {id:0, link: "", name: "Home", icon: "uil uil-home"},
-  {id:1, link: "activites", name: "Activite", icon: "uil uil-user"},
-  {id:2, link: "decouverte", name: "Decouverte", icon: "uil uil-file-alt"}
+  {id:1, link: "activites", name: "Activite", icon: "uil uil-heart"},
+  {id:2, link: "compte", name: "Compte", icon: "uil uil-user"}
 ];
 
 
@@ -25,7 +25,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="activites" element={<Activites />} />
           <Route exact path='/activites/:id' element={<Activite />} />
-          <Route path="decouverte" element={<Decouverte />} />
+          <Route path="compte" element={<Compte />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
