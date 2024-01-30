@@ -3,7 +3,7 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 import Logo_header from "../components/logo_header";
 import Location_header from "../components/location_header";
-
+import GeoNotification from '../components/GeoNotification';
 
 const libraries = ['places'];
 const mapContainerStyle = {
@@ -33,7 +33,7 @@ const Home = () => {
     <div>
         <Logo_header></Logo_header>
         <Location_header></Location_header>
-
+        <GeoNotification></GeoNotification>
         <div>
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d704.0961779618087!2d2.3416491505986627!3d48.86884582690801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3c8ab00dff%3A0xdb158c2db686cbcf!2sEEMI!5e0!3m2!1sfr!2sfr!4v1706609311598!5m2!1sfr!2sfr" 
