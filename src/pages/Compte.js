@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 const Compte = () => {
     return (
         <div>
-            <div class="flex flex-row items-center p-8 w-full gap-4">
-                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Bonnie image"/>
+            <div className="flex flex-row items-center p-8 w-full gap-4">
+                <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Bonnie image"/>
                 <div>
-                    <h5 class="text-2xl font-bold">Bonnie Green</h5>
-                    <span class="text-lg font-normal text-gray-700">@Bobonie</span>
+                    <h5 className="text-2xl font-bold">Bonnie Green</h5>
+                    <span className="text-lg font-normal text-gray-700">@Bobonie</span>
                 </div>
             </div>
 
