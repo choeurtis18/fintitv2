@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
 
+
 // Déclaration de la fonction MyComponent en dehors du composant UserInfo
 function MyComponent(props) {
   return (
