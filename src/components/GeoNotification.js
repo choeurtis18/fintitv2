@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Popup from 'reactjs-popup';
 
 const GeoNotification = () => {
     const [notification, setNotification] = useState(null);
@@ -16,9 +17,11 @@ const GeoNotification = () => {
     }, []);
 
     return (
-        <div>
-            {notification}
-        </div>
+        <Popup open={notification !== null} closeOnDocumentClick onClose={() => setNotification(null)}>
+            <div className="p-4 bg-gradient-to-r from-[#FE911E] to-[#F25F24] text-white rounded-lg shadow-md fixed top-0 left-0 right-0 mt-4 mx-4">
+                {notification}
+            </div>
+        </Popup>
     );
 };
 
