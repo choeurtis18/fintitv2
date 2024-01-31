@@ -1,32 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import icon from '../assets/icon.png';
 
 const Activite = () => {
-  const [userLocation, setUserLocation] = useState(null);
-
-  useEffect(() => {
-    // Obtient la position actuelle de l'utilisateur
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-
-        // Utilisez l'API de géocodage (par exemple, Google Maps) pour obtenir l'adresse à partir des coordonnées
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyD5FdRtKjp6VsoVXI3YevMOdbM_lyW0w70`)
-          .then((response) => response.json())
-          .then((data) => {
-            const address = data.results[0]?.formatted_address;
-            setUserLocation(address || 'Adresse non disponible');
-          })
-          .catch((error) => {
-            console.error('Erreur de géocodage :', error.message);
-          });
-      },
-      (error) => {
-        console.error('Erreur de géolocalisation :', error.message);
-      }
-    );
-  }, []);
-
   return (
     <div className='user-info mx-8 my-4'>
       <h1 className='text-3xl font-medium'>Bonjour Odile !</h1>
@@ -35,7 +9,7 @@ const Activite = () => {
           <p className='actual-location-info text-[#4F4F4F] text-xl'>Localisation actuelle</p>
           <div className='flex flex-row items-center actual-location-info'>
             <img className="w-8" src={icon} alt="image icon" />
-            <span className='leading-none text-lg'>{userLocation || 'Chargement de la localisation...'}</span>
+            <span className='leading-none text-lg'>16 Pl. de la Bourse, 75002 Paris</span>
           </div>
         </div>
         <div className='bg-white px-4 py-2 rounded-lg flex items-center'>
