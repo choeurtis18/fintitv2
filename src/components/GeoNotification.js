@@ -9,7 +9,9 @@ const GeoNotification = () => {
             setNotification('Géolocalisation non prise en charge par votre navigateur');
         } else {
             navigator.geolocation.getCurrentPosition((position) => {
-                setNotification(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`);
+                
+                // setNotification(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`);
+                setNotification(`Une petite faim ? Il y Picto - Sandwicherie artisanale à 300m de vous !`);
             }, () => {
                 setNotification('Impossible de récupérer votre position');
             });

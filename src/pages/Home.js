@@ -3,6 +3,7 @@ import L from 'leaflet';
 
 import Logo_header from "../components/logo_header";
 import Location_header from "../components/location_header";
+import GeoNotification from '../components/GeoNotification';
 import 'leaflet/dist/leaflet.css';
 
 const Home = () => {
@@ -74,10 +75,10 @@ const Home = () => {
 
   return (
     <div>
-      <Logo_header></Logo_header>
-      <Location_header></Location_header>
-
-      <div id='maps' style={{ height: '400px', width: '100%' }}></div>
+        <Logo_header></Logo_header>
+        <Location_header></Location_header>
+        <GeoNotification></GeoNotification>
+        <div id='maps' style={{ height: '400px', width: '100%' }}></div>
     </div>
   );
 };
