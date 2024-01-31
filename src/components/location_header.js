@@ -3,7 +3,7 @@ import icon from '../assets/icon.png';
 const Activite = () => {
   return (
     <div className='user-info mx-8 my-4'>
-      <h1 className='text-3xl font-medium'>Bonjour Odile !</h1>
+      <h1 className='text-3xl font-medium'>Bonjour Bonnie !</h1>
       <div className='flex flex-row my-4 actual-location-info justify-between'>
         <div className='flex flex-col'>
           <p className='actual-location-info text-[#4F4F4F] text-xl'>Localisation actuelle</p>
