@@ -5,6 +5,7 @@ import './index.css';
 
 import Navigation from './components/Navigation';
 import Home from "./pages/Home";
+import UserInfo from "./pages/UserInfo";
 import Activites from "./pages/Activites";
 import Activite from "./pages/Activite";
 import Compte from "./pages/Compte";
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="activites" element={<Activites />} />
           <Route exact path='/activites/:id' element={<Activite />} />
           <Route path="compte" element={<Compte />} />
+          <Route path="userinfo" element={<UserInfo />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

@@ -25,8 +25,8 @@ const Activite = () => {
 
     return (
         <div className="text-center my-12 mx-8">
-            <h2 class="text-3xl font-semibold">{activite.titre}</h2>
-            <p class="text-base my-4">{activite.description}</p>
+            <h2 className="text-3xl font-semibold">{activite.titre}</h2>
+            <p className="text-base my-4">{activite.description}</p>
 
             <div>
                 <p className="text-xl text-gray-500">{activite.type}</p>
